@@ -1,8 +1,10 @@
 .container {
-    height: 100%;        /* full height of body */
-    width: 100%;         /* full width of page */
-    display: flex;       /* optional, for centering content */
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
-    background-color: #f0f0f0; /* example background */
+    min-height: 100vh;    /* Changed from height: 100% */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;            /* Added */
+    padding: 0;           /* Added */
 }
