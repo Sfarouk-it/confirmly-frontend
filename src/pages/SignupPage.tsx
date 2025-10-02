@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GenStyle from '../styles/style.module.css';
-import './LoginPage.css'; // Reusing styles for consistency
 
 
 const SignupPage = () => {
