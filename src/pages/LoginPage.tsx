@@ -5,7 +5,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleEmailLogin = (e) => {
+    const handleEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // TODO: Implement email and password login logic
         console.log('Logging in with:', { email, password });
