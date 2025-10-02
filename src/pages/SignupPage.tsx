@@ -32,7 +32,6 @@ const SignupPage = () => {
         <div className={GenStyle.container}>
             <div className="signup-container">
                 <h2>Sign Up</h2>
-                <h2>Login</h2>
                 <form onSubmit={handleEmailSigneUp} className="signup-form">
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
@@ -64,10 +63,6 @@ const SignupPage = () => {
                 <div className="oauth-buttons">
                     <button onClick={handleGoogleSigneUp} className="btn btn-google">Login with Google</button>
                     <button onClick={handleFacebookSigneUp} className="btn btn-facebook">Login with Facebook</button>
-                </div>
-
-                <div className="signup-link">
-                    <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
                 </div>
                 <Link to="/">Back to Login</Link>
             </div>
