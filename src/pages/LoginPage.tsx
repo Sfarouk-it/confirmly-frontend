@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
+import GenStyle from '../styles/style.module.css';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="login-page">
+        <div className={GenStyle.container}>
             <div className="login-container">
                 <h2>Login</h2>
                 <form onSubmit={handleEmailLogin} className="login-form">

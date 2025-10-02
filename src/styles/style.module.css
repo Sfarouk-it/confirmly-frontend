@@ -1,0 +1,6 @@
+.container {
+    height: 100%;        /* full height of body */
+    width: 100%;         /* full width of page */
+    align-items: center;     /* vertical center */
+    background-color: #f0f0f0; /* example background */
+}
