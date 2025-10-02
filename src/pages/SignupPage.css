@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
@@ -8,23 +8,23 @@
     text-align: center;
 }
 
-.login-container h2 {
+.signup-container h2 {
     margin-bottom: 1.5rem;
     color: #333;
 }
 
-.login-form .form-group {
+.signup-form .form-group {
     margin-bottom: 1rem;
     text-align: left;
 }
 
-.login-form label {
+.signup-form label {
     display: block;
     margin-bottom: 0.5rem;
     color: #555;
 }
 
-.login-form input {
+.signup-form input {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;

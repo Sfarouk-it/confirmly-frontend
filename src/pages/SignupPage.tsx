@@ -1,37 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
 import GenStyle from '../styles/style.module.css';
+import './LoginPage.css'; // Reusing styles for consistency
 
 
-const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const SignupPage = () => {
 
-    const handleEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+    const handleEmailSigneUp = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // TODO: Implement email and password login logic
-        console.log('Logging in with:', { email, password });
-        alert('Email/Password login logic not implemented.');
+        console.log('Signing up with:', { email, password });
+        alert('Email/Password signup logic not implemented.');
     };
 
-    const handleGoogleLogin = () => {
+    const handleGoogleSigneUp = () => {
         // TODO: Implement Google OAuth login logic
-        console.log('Logging in with Google');
-        alert('Google OAuth login logic not implemented.');
+        console.log('Signing up with Google');
+        alert('Google OAuth signup logic not implemented.');
+    };
+    const handleFacebookSigneUp = () => {
+        // TODO: Implement Facebook OAuth login logic
+        console.log('Signing up with Facebook');
+        alert('Facebook OAuth signup logic not implemented.');
     };
 
-    const handleFacebookLogin = () => {
-        // TODO: Implement Facebook OAuth login logic
-        console.log('Logging in with Facebook');
-        alert('Facebook OAuth login logic not implemented.');
-    };
 
     return (
         <div className={GenStyle.container}>
-            <div className="login-container">
+            <div className="signup-container">
+                <h2>Sign Up</h2>
                 <h2>Login</h2>
-                <form onSubmit={handleEmailLogin} className="login-form">
+                <form onSubmit={handleEmailSigneUp} className="signup-form">
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input
@@ -60,16 +62,17 @@ const LoginPage = () => {
                 <div className="or-divider">OR</div>
 
                 <div className="oauth-buttons">
-                    <button onClick={handleGoogleLogin} className="btn btn-google">Login with Google</button>
-                    <button onClick={handleFacebookLogin} className="btn btn-facebook">Login with Facebook</button>
+                    <button onClick={handleGoogleSigneUp} className="btn btn-google">Login with Google</button>
+                    <button onClick={handleFacebookSigneUp} className="btn btn-facebook">Login with Facebook</button>
                 </div>
 
                 <div className="signup-link">
                     <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
                 </div>
+                <Link to="/">Back to Login</Link>
             </div>
         </div>
     );
 };
 
-export default LoginPage;
+export default SignupPage;
