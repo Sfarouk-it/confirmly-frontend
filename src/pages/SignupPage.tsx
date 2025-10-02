@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GenStyle from '../styles/style.module.css';
-import './SignupPage.css'; // Reusing styles for consistency
+import './LoginPage.css'; // Reusing styles for consistency
 
 
 const SignupPage = () => {
@@ -30,10 +30,13 @@ const SignupPage = () => {
 
     return (
         <div className={GenStyle.container}>
-            <div className="signup-container">
+            <div className="login-container">
+                <div className="app-logo">
+                    C
+                </div>
                 <h2>Sign Up</h2>
-                <form onSubmit={handleEmailSigneUp} className="signup-form">
-                    <div className="form-group">
+                <form onSubmit={handleEmailSigneUp} className="login-form">
+                    <div className="form-group"> 
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
@@ -55,16 +58,18 @@ const SignupPage = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
+                    <button type="submit" className="btn btn-primary">Sign Up</button>
                 </form>
 
                 <div className="or-divider">OR</div>
 
                 <div className="oauth-buttons">
-                    <button onClick={handleGoogleSigneUp} className="btn btn-google">Login with Google</button>
-                    <button onClick={handleFacebookSigneUp} className="btn btn-facebook">Login with Facebook</button>
+                    <button onClick={handleGoogleSigneUp} className="btn btn-google">Sign up with Google</button>
+                    <button onClick={handleFacebookSigneUp} className="btn btn-facebook">Sign up with Facebook</button>
                 </div>
-                <Link to="/">Back to Login</Link>
+                <div className="signup-link">
+                    <p>Already have an account? <Link to="/">Log in</Link></p>
+                </div>
             </div>
         </div>
     );

@@ -30,6 +30,9 @@ const LoginPage = () => {
     return (
         <div className={GenStyle.container}>
             <div className="login-container">
+                <div className="app-logo">
+                    C
+                </div>
                 <h2>Login</h2>
                 <form onSubmit={handleEmailLogin} className="login-form">
                     <div className="form-group">
