@@ -1,17 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { signupwEmail , loginwEmail} from '../services/Authantification';
 
 const SignupPage = () => {
     const [email, setEmail] = React.useState('');
+    const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
 
-    const handleEmailSigneUp = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        // TODO: Implement email and password signup logic
-        console.log('Signing up with:', { email, password });
-        alert('Email/Password signup logic not implemented.');
-    };
+    const handleEmailSigneUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+    }
+
+    try {
+        const response = await signupwEmail(email, username, password);
+        console.log('Signup response:', response);
+        alert('Signup successful! Please log in.');
+    } catch (error: any) {
+        console.error('Signup error:', error);
+        if (error.response && error.response.data) {
+            alert(`Signup failed: ${error.response.data}`);
+        } else {
+            alert('Signup failed. Please try again.');
+        }
+    }
+};
+
 
     const handleGoogleSigneUp = () => {
         // TODO: Implement Google OAuth signup logic
@@ -53,6 +71,24 @@ const SignupPage = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="name@company.com"
+                                required
+                                className="w-full px-4 py-3 text-gray-900 bg-white/50 border border-gray-300 rounded-xl outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 focus:bg-white placeholder:text-gray-400"
+                            />
+                        </div>
+
+                        <div>
+                            <label 
+                                htmlFor="username" 
+                                className="block text-sm font-medium text-gray-700 mb-2"
+                            >
+                                Email Address
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="username"
                                 required
                                 className="w-full px-4 py-3 text-gray-900 bg-white/50 border border-gray-300 rounded-xl outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 focus:bg-white placeholder:text-gray-400"
                             />
