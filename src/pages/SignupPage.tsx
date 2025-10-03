@@ -84,8 +84,8 @@ const SignupPage = () => {
                                 Email Address
                             </label>
                             <input
-                                type="email"
-                                id="email"
+                                type="username"
+                                id="username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 placeholder="username"
