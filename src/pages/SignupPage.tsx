@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signupwEmail , loginwEmail} from '../services/Authantification';
+import { signupwEmail } from '../services/Authantification';
 
 const SignupPage = () => {
     const [email, setEmail] = React.useState('');
@@ -9,26 +9,26 @@ const SignupPage = () => {
     const [confirmPassword, setConfirmPassword] = React.useState('');
 
     const handleEmailSigneUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    if (password !== confirmPassword) {
-        alert('Passwords do not match.');
-        return;
-    }
-
-    try {
-        const response = await signupwEmail(email, username, password);
-        console.log('Signup response:', response);
-        alert('Signup successful! Please log in.');
-    } catch (error: any) {
-        console.error('Signup error:', error);
-        if (error.response && error.response.data) {
-            alert(`Signup failed: ${error.response.data}`);
-        } else {
-            alert('Signup failed. Please try again.');
+        if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            return;
         }
-    }
-};
+
+        try {
+            const response = await signupwEmail(email, username, password);
+            console.log('Signup response:', response);
+            alert('Signup successful! Please log in.');
+        } catch (error: any) {
+            console.error('Signup error:', error);
+            if (error.response && error.response.data) {
+                alert(`Signup failed: ${error.response.data}`);
+            } else {
+                alert('Signup failed. Please try again.');
+            }
+        }
+    };
 
 
     const handleGoogleSigneUp = () => {
