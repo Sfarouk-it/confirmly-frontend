@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import GenStyle from '../styles/style.module.css';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -26,7 +25,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className={`${GenStyle.container} min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4`}>
+        <div className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4`}>
             <div className="max-w-md w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
                 <div className="px-8 pt-10 pb-8">
                     <div className="text-center mb-8">
