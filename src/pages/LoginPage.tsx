@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginwEmail } from '../services/Authantification';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -12,7 +13,7 @@ const LoginPage = () => {
         try {
             const response = await loginwEmail(email, password);
             console.log('login response:', response);
-            alert('log in successful');
+            navigate('/dashboard');
         } catch (error: any) {
             console.error('Signup error:', error);
             if (error.response && error.response.data) {
@@ -24,13 +25,11 @@ const LoginPage = () => {
     };
 
     const handleGoogleLogin = () => {
-        // TODO: Implement Google OAuth login logic
         console.log('Logging in with Google');
         alert('Google OAuth login logic not implemented.');
     };
 
     const handleFacebookLogin = () => {
-        // TODO: Implement Facebook OAuth login logic
         window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
     };
 
