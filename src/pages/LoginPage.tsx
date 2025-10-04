@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loginwEmail } from '../services/Authantification';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleEmailLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // TODO: Implement email and password login logic
-        console.log('Logging in with:', { email, password });
-        alert('Email/Password login logic not implemented.');
+        
+        try {
+            const response = await loginwEmail(email, password);
+            console.log('login response:', response);
+            alert('log in successful');
+        } catch (error: any) {
+            console.error('Signup error:', error);
+            if (error.response && error.response.data) {
+                alert(`Signup failed: ${error.response.data}`);
+            } else {
+                alert('Signup failed. Please try again.');
+            }
+        }
     };
 
     const handleGoogleLogin = () => {
@@ -20,8 +31,7 @@ const LoginPage = () => {
 
     const handleFacebookLogin = () => {
         // TODO: Implement Facebook OAuth login logic
-        console.log('Logging in with Facebook');
-        alert('Facebook OAuth login logic not implemented.');
+        window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
     };
 
     return (

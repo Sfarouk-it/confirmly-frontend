@@ -38,9 +38,7 @@ const SignupPage = () => {
     };
 
     const handleFacebookSigneUp = () => {
-        // TODO: Implement Facebook OAuth signup logic
-        console.log('Signing up with Facebook');
-        alert('Facebook OAuth signup logic not implemented.');
+        window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
     };
 
     return (
