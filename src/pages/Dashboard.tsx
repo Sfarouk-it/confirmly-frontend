@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHome, FaChartLine, FaBox, FaUsers, FaCog, FaSignOutAlt } from 'react-icons/fa';
 
