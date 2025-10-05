@@ -10,7 +10,6 @@ const LinkPage = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Here you would typically send this data to your backend
         console.log('Store Name:', brandName);
         console.log('Business Field:', businessField);
         alert('Store information submitted successfully!');
