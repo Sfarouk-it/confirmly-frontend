@@ -13,7 +13,7 @@ const LoginPage = () => {
         try {
             const response = await loginwEmail(email, password);
             console.log('login response:', response);
-            navigate('/dashboard');
+            navigate('/accountsetup');
         } catch (error: any) {
             console.error('Signup error:', error);
             if (error.response && error.response.data) {

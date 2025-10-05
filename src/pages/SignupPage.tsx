@@ -38,7 +38,7 @@ const SignupPage = () => {
     };
 
     const handleFacebookSigneUp = () => {
-        window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
+        window.location.href = "https://confirmly.onrender.com/api/permissions/facebookpermissions";
     };
 
     return (
