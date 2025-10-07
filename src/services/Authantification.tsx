@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const API_URL = 'https://confirmly.onrender.com/api/authantification'; // Replace with your backend API URL
 
 export const api = axios.create({
   baseURL: "https://confirmly.onrender.com/api/authantification",
