@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "y",
+  baseURL: "https://confirmly.onrender.com/api/business",
   withCredentials: true,
 });
 
