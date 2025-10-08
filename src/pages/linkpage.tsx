@@ -9,10 +9,10 @@ const LinkPage = () => {
     const [businessField, setBusinessField] = useState('');
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = setupBusiness(brandName, businessType, businessField);
+            const response = await setupBusiness(brandName, businessType, businessField);
             console.log(response);
             setFormSubmitted(true);
         } catch (error) {
