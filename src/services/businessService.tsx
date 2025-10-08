@@ -1,13 +1,17 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "https://confirmly.onrender.com/api/business",
+  baseURL: "y",
   withCredentials: true,
 });
 
-export const setupBusiness = async (businessName: string, businessType: string, businessField: string) => {
+export const setupBusiness = async (brandName: string, businessType: string, businessField: string) => {
     try {
-        const response = await api.post("/setup", { businessName, businessType, businessField });
+        const response = await api.post("/setup", { 
+            businessname: brandName, 
+            businesstype: businessType, 
+            businessfield: businessField 
+        });
         return response.data;
     } catch (error) {
         throw error;

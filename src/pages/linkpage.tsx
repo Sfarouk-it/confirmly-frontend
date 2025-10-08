@@ -12,7 +12,7 @@ const LinkPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await setupBusiness(brandName, businessType, businessField);
+            const response = await setupBusiness(brandName, businessType, businessField); // The variable names here are fine
             console.log(response);
             setFormSubmitted(true);
         } catch (error) {
@@ -125,7 +125,7 @@ const LinkPage = () => {
                                 <button 
                                     className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-white text-gray-700 font-medium border border-gray-300 rounded-xl shadow-sm hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                                     onClick={handleFacebookLogin}
-                                >
+                                > 
                                     <FaFacebook className="w-5 h-5 text-blue-600"/>
                                     <span className="text-sm">Link Facebook page</span>
                                 </button>
