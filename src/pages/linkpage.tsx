@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { setupBusiness } from '../services/businessService';
 import { FaTiktok , FaInstagram , FaFacebook , FaWhatsapp} from "react-icons/fa6";
 
 const LinkPage = () => {
@@ -10,10 +11,14 @@ const LinkPage = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('Store Name:', brandName);
-        console.log('Business Field:', businessField);
-        alert('Store information submitted successfully!');
-        setFormSubmitted(true);
+        try {
+            const response = setupBusiness(brandName, businessType, businessField);
+            console.log(response);
+            setFormSubmitted(true);
+        } catch (error) {
+            console.error('Error setting up business:', error);
+            alert('Error setting up business. Please try again.');
+        }
     };
 
     const handleFacebookLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
