@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginwEmail } from '../services/Authantification';
+import { loginwEmail , facebookAuth } from '../services/Authantification';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -29,8 +29,32 @@ const LoginPage = () => {
         alert('Google OAuth login logic not implemented.');
     };
 
-    const handleFacebookLogin = () => {
-        window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
+    const handleFacebookLogin = async () => {
+        try {
+            const authURL = await facebookAuth();
+
+            const width = 600, height = 600;
+            const left = window.innerWidth / 2 - width / 2;
+            const top = window.innerHeight / 2 - height / 2;
+
+            const popup = window.open(
+                authURL,
+                "Facebook Login",
+                `width=${width},height=${height},top=${top},left=${left}`
+            );
+
+            // 3. انتظر النتيجة (عن طريق message event)
+            window.addEventListener("message", (event) => {
+                if (event.origin !== "https://confirmly.onrender.com") return; // أمان
+                if (event.data.type === "FB_LOGIN_SUCCESS") {
+                console.log("تم تسجيل الدخول:", event.data.user);
+                }
+            });
+
+        }
+        catch(error){
+            console.error("خطأ أثناء الاتصال:", error);
+        }
     };
 
     return (

@@ -1,14 +1,14 @@
 import axios from 'axios';
+import { API } from '../APIs/config';
 
-
-export const api = axios.create({
-  baseURL: "https://confirmly.onrender.com/api/Facebook/Auth",
+export const authapi = axios.create({
+  baseURL: API.AUTHENTIFICATION,
   withCredentials: true,
 });
 
 export const loginwEmail = async (username: string, password: string) => {
     try {
-        const response = await api.post("/login/email",  { username, password },);
+        const response = await authapi.post("/login",  { username, password },);
         return response.data; 
     } catch (error: any) {
         if (error.response) {
@@ -22,7 +22,7 @@ export const loginwEmail = async (username: string, password: string) => {
 
 export const signupwEmail = async (email: string, username: string, password: string) => {
     try {
-        const response = await api.post("/signup/email", { email, username, password });
+        const response = await authapi.post("/signup", { email, username, password });
         return response.data;
     } catch (error) {
         throw error;
@@ -31,7 +31,7 @@ export const signupwEmail = async (email: string, username: string, password: st
 
 export const facebookAuth = async () => {
     try {
-        const response = await api.get("/login/facebook");
+        const response = await authapi.get("/facebook/authontificate");
         return response.data;
     } catch (error) {
         throw error;
