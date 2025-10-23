@@ -38,7 +38,7 @@ const LoginPage = () => {
             const top = window.innerHeight / 2 - height / 2;
 
             window.open(
-                authURL,
+                authURL.authUrl,
                 "Facebook Login",
                 `width=${width},height=${height},top=${top},left=${left}`
             );
