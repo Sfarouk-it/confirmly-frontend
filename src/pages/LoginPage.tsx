@@ -31,31 +31,32 @@ const LoginPage = () => {
 
     const handleFacebookLogin = async () => {
         try {
-            const authURL = await facebookAuth();
+            const response = await facebookAuth(); // backend returns { authUrl }
 
             const width = 600, height = 600;
             const left = window.innerWidth / 2 - width / 2;
             const top = window.innerHeight / 2 - height / 2;
 
             window.open(
-                authURL.authUrl,
-                "Facebook Login",
-                `width=${width},height=${height},top=${top},left=${left}`
+            response.authUrl,
+            "Facebook Login",
+            `width=${width},height=${height},top=${top},left=${left}`
             );
 
-            // 3. انتظر النتيجة (عن طريق message event)
             window.addEventListener("message", (event) => {
-                if (event.origin !== "https://confirmly.onrender.com") return; // أمان
-                if (event.data.type === "FB_LOGIN_SUCCESS") {
-                console.log("تم تسجيل الدخول:", event.data.user);
-                }
+            if (event.origin !== "https://your-backend-domain.com") return; 
+            if (event.data.type === "FB_LOGIN_SUCCESS") {
+                navigate('/accountsetup');
+                console.log("✅ Logged in as:", event.data.user);
+            } else if (event.data.type === "FB_LOGIN_FAILED") {
+                console.error("❌ Login failed:", event.data.error);
+            }
             });
-
-        }
-        catch(error){
-            console.error("خطأ أثناء الاتصال:", error);
+        } catch (error) {
+            console.error("Error during Facebook login:", error);
         }
     };
+
 
     return (
         <div className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4`}>

@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import { setupBusiness } from '../services/businessService';
+import { getFacebookPermissions } from '../services/SocialMediaPermissions';
 import { FaTiktok , FaInstagram , FaFacebook , FaWhatsapp} from "react-icons/fa6";
 
 const LinkPage = () => {
+
+    const navigate = useNavigate();
     const [brandName, setBrandName] = useState('');
     const [businessType, setBusinessType] = useState('');
     const [businessField, setBusinessField] = useState('');
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const [businessID, setBusinessID] = useState(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await setupBusiness(brandName, businessType, businessField); // The variable names here are fine
+            const response = await setupBusiness(brandName, businessType, businessField); 
+            setBusinessID(response.id); // Assuming the response contains the business ID
             console.log(response);
             setFormSubmitted(true);
         } catch (error) {
@@ -21,9 +26,35 @@ const LinkPage = () => {
         }
     };
 
-    const handleFacebookLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleFacebookPermissions = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        window.location.href = "https://confirmly.onrender.com/api/authantification/login/facebook";
+        try {
+            if (businessID) {
+                const response = await getFacebookPermissions(businessID);
+
+                const width = 600, height = 600;
+                const left = window.innerWidth / 2 - width / 2;
+                const top = window.innerHeight / 2 - height / 2;
+
+                window.open(
+                    response.authUrl,
+                    "Facebook Login",
+                    `width=${width},height=${height},top=${top},left=${left}`
+                );
+
+                // 3. انتظر النتيجة (عن طريق message event)
+                window.addEventListener("message", (event) => {
+                    if (event.origin !== "https://confirmly.onrender.com") return; // أمان
+                    if (event.data.type === "FB_LOGIN_SUCCESS") {
+                    console.log("تم تسجيل الدخول:", event.data.user);
+                    }
+                });
+            }
+            navigate('/dashboard');
+        } catch (error) {
+            console.error('Error getting Facebook permissions:', error);
+            alert('Error getting Facebook permissions. Please try again.');
+        }
     };
 
     return (
@@ -124,7 +155,7 @@ const LinkPage = () => {
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <button 
                                     className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-white text-gray-700 font-medium border border-gray-300 rounded-xl shadow-sm hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                                    onClick={handleFacebookLogin}
+                                    onClick={handleFacebookPermissions}
                                 > 
                                     <FaFacebook className="w-5 h-5 text-blue-600"/>
                                     <span className="text-sm">Link Facebook page</span>
