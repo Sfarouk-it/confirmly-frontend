@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
-import { setupBusiness } from '../services/businessService';
-import { getFacebookPermissions } from '../services/SocialMediaPermissions';
+import { setupBusiness } from '../../services/businessService';
+import { getFacebookPermissions } from '../../services/SocialMediaPermissions';
 import { FaTiktok , FaInstagram , FaFacebook , FaWhatsapp} from "react-icons/fa6";
 
 const LinkPage = () => {
