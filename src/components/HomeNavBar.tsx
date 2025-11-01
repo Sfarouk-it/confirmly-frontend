@@ -1,5 +1,3 @@
-import React from "react";
-
 const HomeNavBar = () => {
     return (
         <div className="text-blue-600">

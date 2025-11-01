@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signupwEmail } from '../services/Authantification';
+import { signupwEmail } from '../../services/Authantification';
 
 const SignupPage = () => {
     const [email, setEmail] = React.useState('');
