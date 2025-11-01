@@ -8,7 +8,7 @@ const HomePricing = () => {
 
   return (
     <div>
-        <div className="max-w-[1240px] w-full h-screen mx-auto grid md:grid-cols-3 grid-cols-1 gap-8">
+        <div className="max-w-[1240px] w-full min-h-screen mx-auto grid md:grid-cols-3 grid-cols-1 gap-8 py-20">
             <div className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
                 <IoIosPerson className="mx-auto mt-[-3rem] bg-white text-blue-600" size={50}/>
                 <h2 className="text-2xl font-bold text-center py-8">Basic Plan</h2>
