@@ -1,4 +1,4 @@
-import Background from '../components/BackGround.tsx';
+
 import HomeNavBar from '../components/HomeNavBar.tsx';
 import HomeHero from '../components/HomeHero.tsx';
 import HomeCompany from '../components/HomeCompany.tsx';
