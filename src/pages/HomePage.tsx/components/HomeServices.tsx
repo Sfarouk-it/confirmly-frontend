@@ -1,6 +1,6 @@
 const HomeServices = () => {
     return (
-        <div>
+        <div id="services">
             <div className="max-w-[800px] w-full h-screen mx-auto text-center flex flex-col justify-center">
                 <p className="text-blue-600 font-bold p-2">OUR SERVICES</p>
                 <h1 className="md:text-5xl sm:text-3xl text-2xl font-bold md:py-6">What We Offer</h1>

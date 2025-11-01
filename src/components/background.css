@@ -1,0 +1,34 @@
+@keyframes bubbleMove1 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(30vw, -50vh); }   
+  50%  { transform: translate(-40vw, 10vh); }  
+  75%  { transform: translate(-30vw, -30vh); }    
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes bubbleMove2 {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-30vw, 10vh); }   
+  40%  { transform: translate(-30vw, -70vh); }   
+  60%  { transform: translate(-20vw, -20vh); }  
+  80%  { transform: translate(10vw, 15vh); }   
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes bubbleMove3 {
+  0%   { transform: translate(0, 0); }
+  30%  { transform: translate(-20vw, -10vh); } 
+  50%  { transform: translate(60vw, -60vh); }    
+  70%  { transform: translate(-25vw, 10vh); }   
+  100% { transform: translate(0, 0); }
+}
+
+.animate-bubble1 {
+  animation: bubbleMove1 28s ease-in-out infinite;
+}
+.animate-bubble2 {
+  animation: bubbleMove2 30s ease-in-out infinite;
+}
+.animate-bubble3 {
+  animation: bubbleMove3 32s ease-in-out infinite;
+}
