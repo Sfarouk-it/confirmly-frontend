@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginwEmail , facebookAuth } from '../../services/Authantification';
+import Background from '../../components/BackGround';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleEmailLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleEmailLogin = async () => {
         
         try {
             const response = await loginwEmail(email, password);
@@ -59,11 +59,13 @@ const LoginPage = () => {
 
 
     return (
-        <div className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4`}>
-            <div className="max-w-md w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
-                <div className="px-8 pt-10 pb-8">
+        <div>
+            <Background />
+            <div className="flex justify-between items-center h-24 w-full mx-auto px-4 text-blue-600 "><h1 className='w-full font-bold text-3xl'>Confirmly</h1></div>
+            <div className=" md:w-[500px] w-[400px] h-[600px] mx-auto mb-6 bg-white rounded-2xl border-2 ">
+                <div className="px-10 pt-8 pb-5">
                     <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+                        <h2 className="text-2xl font-bold text-blue-600 mb-2">
                             Welcome Back
                         </h2>
                         <p className="text-gray-600 text-sm">Sign in to continue to your account</p>

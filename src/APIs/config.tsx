@@ -1,4 +1,4 @@
-const BASE_URL = "https://confirmly.onrender.com";
+const BASE_URL = "https://5da79764dc8d.ngrok-free.app";
 
 export const API = {
   AUTHENTIFICATION: `${BASE_URL}/api/auth`,

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
 import { setupBusiness } from '../../services/businessService';
 import { getFacebookPermissions } from '../../services/SocialMediaPermissions';
 import { FaTiktok , FaInstagram , FaFacebook , FaWhatsapp} from "react-icons/fa6";
+import Background from '../../components/BackGround';
+
 
 const LinkPage = () => {
 
@@ -13,8 +15,7 @@ const LinkPage = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [businessID, setBusinessID] = useState(null);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         try {
             const response = await setupBusiness(brandName, businessType, businessField); 
             setBusinessID(response.id); // Assuming the response contains the business ID
@@ -26,8 +27,7 @@ const LinkPage = () => {
         }
     };
 
-    const handleFacebookPermissions = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
+    const handleFacebookPermissions = async () => {
         try {
             if (businessID) {
                 const response = await getFacebookPermissions(businessID);
@@ -58,8 +58,10 @@ const LinkPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-teal-50 to-cyan-50 py-12 px-4">
-            <div className="max-w-md w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+        <div>
+            <Background />
+            <div className="flex justify-between items-center h-24 w-full mx-auto px-4 text-blue-600 "><h1 className='w-full font-bold text-3xl'>Confirmly</h1></div>
+            <div className="md:w-[500px] w-[400px] h-auto mx-auto mb-6 bg-white border-2 rounded-2xl ">
                 <div className="px-8 pt-10 pb-8">
                     <div className="text-center mb-8">
                         <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-2">

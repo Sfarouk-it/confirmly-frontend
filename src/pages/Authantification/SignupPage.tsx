@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { signupwEmail } from '../../services/Authantification';
+import Background from '../../components/BackGround';
 
 const SignupPage = () => {
     const [email, setEmail] = React.useState('');
@@ -32,7 +33,6 @@ const SignupPage = () => {
 
 
     const handleGoogleSigneUp = () => {
-        // TODO: Implement Google OAuth signup logic
         console.log('Signing up with Google');
         alert('Google OAuth signup logic not implemented.');
     };
@@ -42,13 +42,12 @@ const SignupPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-12 px-4">
-            <div className="max-w-md w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+        <div>
+            <Background />
+            <div className="flex justify-between items-center h-24 w-full mx-auto px-4 text-blue-600 "><h1 className='w-full font-bold text-3xl'>Confirmly</h1></div>
+            <div className="md:w-[500px] w-[400px] min-h-screen mx-auto mb-6 bg-white rounded-2xl border-2">
                 <div className="px-8 pt-10 pb-8">
                     <div className="text-center mb-8">
-                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl shadow-lg mb-4">
-                            <span className="text-3xl font-bold text-white">C</span>
-                        </div>
                         <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
                             Create Account
                         </h2>
@@ -195,7 +194,7 @@ const SignupPage = () => {
                     <p className="text-sm text-gray-600 text-center">
                         Already have an account?{' '}
                         <Link 
-                            to="/" 
+                            to="/login" 
                             className="text-indigo-600 font-semibold hover:text-indigo-700 hover:underline transition-colors duration-200"
                         >
                             Sign in
