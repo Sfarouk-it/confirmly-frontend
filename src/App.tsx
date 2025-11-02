@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage.tsx/Home.tsx";
-import LoginPage from "./pages/authantification/LoginPage.tsx";
-import SignupPage from "./pages/authantification/SignupPage.tsx";
-import AccountSetup from "./pages/businessData/linkpage.tsx";
-import Dashboard from "./pages/dashboard/Dashboard.tsx";
+import HomePage from "./pages/HomePage/Home";
+import LoginPage from "./pages/authantification/LoginPage";
+import SignupPage from "./pages/authantification/SignupPage";
+import AccountSetup from "./pages/businessData/linkpage";
+import Dashboard from "./pages/dashboard/Dashboard";
 import './index.css';
 
 function App() {
