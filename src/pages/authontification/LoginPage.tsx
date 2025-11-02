@@ -44,7 +44,7 @@ const LoginPage = () => {
             );
 
             window.addEventListener("message", (event) => {
-            if (event.origin !== "https://your-backend-domain.com") return; 
+            if (event.origin !== "https://955ccef63516.ngrok-free.app") return; 
             if (event.data.type === "FB_LOGIN_SUCCESS") {
                 navigate('/accountsetup');
                 console.log("✅ Logged in as:", event.data.user);
